@@ -3,19 +3,20 @@ import TestimonialCard from "./TestimonialCard";
 
 const testimonials = [
   {
-    name: "Sarah M.",
+    name: "Catherine L.",
     quote:
-      "James and his crew did an incredible job on our new roof. Punctual, professional, and very thorough.",
+      "Thursday we had our roof redone and I want to give 💯 to my neighbor's company! From the quote to the finished job James was professional and friendly. Wonderful Job and even better service.",
   },
   {
-    name: "Daniel T.",
-    quote:
-      "We had our deck remodeled and it looks amazing. Highly recommend James Salls for any home improvements!",
-  },
+ 
+  name: "Otto’s Barber On Bank.",
+  quote: "Who’s got a pretty new green lid? \nWE DO!!!! 💚💛💚💛",
+},
+
   {
-    name: "Emily R.",
+    name: "William N.",
     quote:
-      "The team was honest, fast, and affordable. We’ll be calling James again for our bathroom renovation.",
+      "James Salls Roofing &Remodeling The best in the business Highly Recommended.",
   },
 ];
 
