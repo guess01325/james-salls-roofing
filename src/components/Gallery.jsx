@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import CTAButton from "./CTAButton";
 
 function Gallery() {
-  const categories = {
-    Roofing: ["/assets/roof1.webp", "/assets/roof2.webp"],
-    Remodeling: ["/assets/roof3.webp", "/assets/roof4.webp"],
-    Decks: ["/assets/roof5.webp", "/assets/roof6.webp"],
-  };
+ const categories = {
+  Roofing: ["/assets/gallery/roofs/roof1.webp", "/assets/gallery/roofs/roof2.webp"],
+  Remodeling: ["/assets/gallery/remodels/remodel1.webp", "/assets/gallery/remodels/remodel2.webp"],
+  Decks: ["/assets/gallery/decks/deck1.webp", "/assets/gallery/decks/deck2.webp"],
+};
 
   return (
     <div className="px-4 py-10 space-y-16">
