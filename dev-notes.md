@@ -11,6 +11,7 @@
   - Header, Footer, Contact form
 - [ ] Replace demo **testimonials** with 2–3 real ones
 
+
 ---
 
 ## 🔜 Up Next
@@ -29,3 +30,6 @@
 - Lo-fi or instrumental music
 - 60–90 min blocks (no micro-breaks)
 - Reset only after full section is done
+
+
+

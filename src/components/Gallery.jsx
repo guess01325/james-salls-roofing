@@ -1,12 +1,24 @@
 import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 import CTAButton from "./CTAButton";
 
 function Gallery() {
- const categories = {
-  Roofing: ["/assets/gallery/roofs/roof1.webp", "/assets/gallery/roofs/roof2.webp"],
-  Remodeling: ["/assets/gallery/remodels/remodel1.webp", "/assets/gallery/remodels/remodel2.webp"],
-  Decks: ["/assets/gallery/decks/deck1.webp", "/assets/gallery/decks/deck2.webp"],
-};
+  // Define full image paths, skipping deck10 and deck18
+  const categories = {
+    Roofing: Array.from(
+      { length: 24 },
+      (_, i) => `/assets/gallery/roofs/roof${i + 1}.webp`
+    ),
+    Remodeling: Array.from({ length: 25 }, (_, i) => i + 1)
+      .filter((n) => n !== 6) // remove remodel6
+      .map((n) => `/assets/gallery/remodels/remodel${n}.webp`),
+    Decks: Array.from({ length: 33 }, (_, i) => i + 1)
+      .filter((n) => n !== 10 && n !== 18) // remove deck10 and deck18
+      .map((n) => `/assets/gallery/decks/deck${n}.webp`),
+  };
 
   return (
     <div className="px-4 py-10 space-y-16">
@@ -18,33 +30,44 @@ function Gallery() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div key={category}>
+          <div>
             <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
               {category}
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              navigation
+              autoplay={{ delay: 3000 }}
+              loop
+              spaceBetween={20}
+              slidesPerView={1}
+              breakpoints={{
+                768: { slidesPerView: 2 },
+              }}
+              className="w-full max-w-5xl mx-auto"
+            >
               {webpImages.map((webpSrc, idx) => {
                 const baseName = webpSrc.replace(".webp", "");
                 const jpgSrc = `${baseName}.jpg`;
+
                 return (
-                  <motion.picture key={idx}>
-                    <source srcSet={webpSrc} type="image/webp" />
-                    <img
-                      src={jpgSrc}
-                      alt={`${category} project ${idx + 1}`}
-                      loading="lazy"
-                      width={2048}
-                      height={1365}
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: idx * 0.1 }}
-                      className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300 object-cover w-full h-auto"
-                    />
-                  </motion.picture>
+                  <SwiperSlide key={idx}>
+                    <div className="aspect-[4/3] overflow-hidden rounded-lg shadow-md group">
+                      <picture>
+                        <source srcSet={webpSrc} type="image/webp" />
+                        <img
+                          src={jpgSrc}
+                          alt={`${category} project ${idx + 1}`}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      </picture>
+                    </div>
+                  </SwiperSlide>
                 );
               })}
-            </div>
+            </Swiper>
           </div>
         </motion.div>
       ))}
@@ -58,12 +81,10 @@ function Gallery() {
           Let James Salls Roofing & Remodeling bring your vision to life.
         </p>
         <CTAButton
-          text="Request a Free Qoute"
+          text="Request a Free Quote"
           href="/contact"
           className="inline-block bg-black text-white px-6 py-3 rounded-md font-medium hover:bg-gray-800 transition"
-        >
-          Request a Free Quote
-        </CTAButton>
+        />
       </div>
     </div>
   );
