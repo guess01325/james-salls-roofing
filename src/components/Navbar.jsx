@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // Icon set (can use Heroicons too)
+import { Menu, X } from "lucide-react";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +23,11 @@ function Navbar() {
           <Link to="/contact" className="text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-700">
             Contact
           </Link>
+
+          {/* Phone (Desktop Only) */}
+          <a href="tel:8602350361" className="text-sm text-gray-700 hover:text-blue-600 whitespace-nowrap">
+            (860) 235-0361
+          </a>
         </div>
 
         {/* Hamburger Icon */}
@@ -44,6 +49,11 @@ function Navbar() {
           <Link to="/contact" className="block text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-700" onClick={() => setIsOpen(false)}>
             Contact
           </Link>
+
+          {/* Phone (Mobile View) */}
+          <a href="tel:8602350361" className="block text-sm text-blue-600 mt-2">
+            (860) 235-0361
+          </a>
         </div>
       )}
     </nav>

@@ -32,12 +32,22 @@ function Hero() {
           Proudly serving with quality craftsmanship you can trust.
         </p>
 
-        <CTAButton
-          href="/contact"
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded font-semibold"
-        >
-          Get a Free Estimate
-        </CTAButton>
+        {/* Button Group */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <CTAButton
+            href="/contact"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded font-semibold"
+          >
+            Get a Free Estimate
+          </CTAButton>
+
+          <a
+            href="tel:8602350361"
+            className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded font-semibold inline-block"
+          >
+            Call (860) 235-0361
+          </a>
+        </div>
       </motion.div>
     </div>
   );
