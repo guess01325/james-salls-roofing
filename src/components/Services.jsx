@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import CTAButton from "./CTAButton";
 import RoofingIcon from "@mui/icons-material/Roofing";
 import DeckIcon from "@mui/icons-material/Deck";
+import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
+import WaterDropIcon from "@mui/icons-material/WaterDrop";
 
 function Services() {
   const services = [
@@ -13,12 +15,12 @@ function Services() {
     {
       title: "Remodeling",
       description: "Interior and exterior remodeling to transform your home.",
-      icon: "🏡",
+      icon: <HomeRepairServiceIcon fontSize="inherit" className="text-blue-600" />,
     },
     {
       title: "Gutter Work",
       description: "Installation and repair of gutters and drainage systems.",
-      icon: "💧",
+      icon: <WaterDropIcon fontSize="inherit" className="text-blue-600" />,
     },
     {
       title: "Decks & Additions",
@@ -44,11 +46,7 @@ function Services() {
               className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-all"
             >
               <div className="text-4xl mb-4">
-                {typeof service.icon === "string" ? (
-                  service.icon
-                ) : (
-                  <span className="inline-block">{service.icon}</span>
-                )}
+                <span className="inline-block">{service.icon}</span>
               </div>
               <h3 className="text-xl font-semibold mb-2 text-gray-700">
                 {service.title}
