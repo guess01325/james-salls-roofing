@@ -2,23 +2,24 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import CTAButton from "../components/CTAButton";
 
-
 const About = () => {
   return (
     <div className="px-4 py-16 max-w-5xl mx-auto space-y-12">
       <Helmet>
-  <title>About James Salls Roofing | Trusted Craftsmanship in MA</title>
-  <meta name="description" content="Learn about our mission, values, and commitment to high-quality roofing and remodeling work." />
-</Helmet>
+        <title>About James Salls Roofing | Trusted Craftsmanship in MA</title>
+        <meta
+          name="description"
+          content="Learn about our mission, values, and commitment to high-quality roofing and remodeling work."
+        />
+      </Helmet>
 
       {/* Headline + Mission */}
       <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold">About James Salls Roofing & Remodeling</h1>
-
+        <h1 className="text-4xl font-bold">About James Salls Roofing & Remodeling</h1>
         <h2 className="text-4xl font-bold">Reliable. Skilled. Local.</h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           At James Salls Roofing & Remodeling, we’ve built a reputation for quality craftsmanship,
-          honest pricing, and personalized service throughout Connecticut and sorounding areas.
+          honest pricing, and personalized service throughout Connecticut and surrounding areas.
         </p>
       </div>
 
