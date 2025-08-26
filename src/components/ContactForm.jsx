@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import CTAButton from "./CTAButton";
-
+import { motion } from "framer-motion";
 
 function ContactForm() {
   const form = useRef();
@@ -53,13 +52,17 @@ function ContactForm() {
             rows="5"
             className="w-full border border-gray-300 p-3 rounded"
           />
-          <CTAButton
-            text="Send Message"
-            type="submit"
-            className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700"
-          >
-            Send Message
-          </CTAButton>
+          <motion.button
+  type="submit"   // <-- key difference
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.3 }}
+  className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-2xl shadow-md hover:bg-blue-700 transition-colors"
+>
+  Send Message
+</motion.button>
         </form>
         {sent && (
           <p className="text-green-600 mt-4 text-center">
